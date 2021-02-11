@@ -20,8 +20,7 @@ public class Hand {
     cards.add(deck.draw());
   }
 
-  // GOAL: eliminate FEATURE ENVY
-  public int value() {
+  int value() {
     int handValue = cards
         .stream()
         .mapToInt(Card::rankValue)
@@ -64,5 +63,13 @@ public class Hand {
 
   public boolean beats(Hand hand) {
     return hand.value() < value();
+  }
+
+  public String displayValue() {
+    return " (" + value() + ")";
+  }
+
+  public boolean isValueEqualTo(int value) {
+    return value() == value;
   }
 }

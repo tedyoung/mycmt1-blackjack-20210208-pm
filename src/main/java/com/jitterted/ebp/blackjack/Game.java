@@ -128,7 +128,7 @@ public class Game {
     System.out.println();
     System.out.println("Player has: ");
     playerHand.displayHand();
-    System.out.println(" (" + playerHand.value() + ")");
+    System.out.println(playerHand.displayValue());
   }
 
   private void displayBackOfCard() {
@@ -149,11 +149,11 @@ public class Game {
     System.out.print(ansi().eraseScreen().cursor(1, 1));
     System.out.println("Dealer has: ");
     dealerHand.displayHand();
-    System.out.println(" (" + dealerHand.value() + ")");
+    System.out.println(dealerHand.displayValue());
 
     System.out.println();
     System.out.println("Player has: ");
     playerHand.displayHand();
-    System.out.println(" (" + playerHand.value() + ")");
+    System.out.println(playerHand.displayValue());
   }
 }
