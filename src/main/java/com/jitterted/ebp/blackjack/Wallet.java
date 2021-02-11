@@ -13,17 +13,35 @@ public class Wallet {
   }
 
   public void addMoney(int amount) {
-    ensureAmountIsValid(amount);
+    ensureAmountGreaterThanZero(amount);
     balance += amount;
   }
 
-  private void ensureAmountIsValid(int amount) {
+  public int balance() {
+    return balance;
+  }
+
+  public void bet(int amount) {
+    ensureAmountIsZeroOrMore(amount);
+    ensureSufficientBalance(amount);
+    balance -= amount;
+  }
+
+  private void ensureAmountGreaterThanZero(int amount) {
+    if (amount <= 0) {
+      throw new IllegalArgumentException();
+    }
+  }
+
+  private void ensureAmountIsZeroOrMore(int amount) {
     if (amount < 0) {
       throw new IllegalArgumentException();
     }
   }
 
-  public int balance() {
-    return balance;
+  private void ensureSufficientBalance(int amount) {
+    if (amount > balance) {
+      throw new IllegalStateException();
+    }
   }
 }
